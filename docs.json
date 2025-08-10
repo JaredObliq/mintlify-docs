@@ -7,7 +7,10 @@
     "light": "#007FFF",
     "dark": "#006AD4"
   },
-  "favicon": "/favicon.svg",
+  "favicon": {
+    "light": "/DZ Icon_ Color (Light Mode).svg",
+    "dark": "/DZ Icon_ Color (Dark Mode).svg"
+  },
   "navigation": {
     "tabs": [
       {
