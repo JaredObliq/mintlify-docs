@@ -1,0 +1,85 @@
+---
+title: "Connect - Multicast Mode"
+description: "Connect to DoubleZero using multicast protocols for efficient data distribution"
+---
+
+# Connect - Multicast Mode
+
+Multicast mode enables efficient data distribution across the DoubleZero network by broadcasting messages to multiple recipients simultaneously, ideal for scenarios requiring wide data dissemination.
+
+## What is Multicast Mode?
+
+Multicast mode uses the DZ Protocol's multicast capabilities to efficiently distribute blockchain data, transactions, and network updates to multiple nodes simultaneously, reducing overall network traffic.
+
+## Configuration
+
+### Network Settings
+
+```bash
+# Example multicast configuration
+network_mode: "multicast"
+multicast_groups: ["blockchain_updates", "transaction_broadcast"]
+efficiency_mode: true
+```
+
+### Connection Parameters
+
+- **Protocol**: DZ Protocol v1.0 with Multicast Extension
+- **Port**: 8081 (multicast default)
+- **Authentication**: Public key verification
+- **Encryption**: TLS 1.3 with multicast key sharing
+
+## Setup Steps
+
+1. **Configure multicast settings**
+   ```bash
+   # Set multicast mode
+   dz config set mode multicast
+   dz config set multicast_groups blockchain_updates,transaction_broadcast
+   ```
+
+2. **Join multicast groups**
+   ```bash
+   # Join relevant multicast groups
+   dz multicast join blockchain_updates
+   dz multicast join transaction_broadcast
+   ```
+
+3. **Verify multicast connectivity**
+   ```bash
+   # Test multicast group membership
+   dz multicast status
+   ```
+
+4. **Begin receiving multicast data**
+   ```bash
+   # Start listening for multicast messages
+   dz multicast listen
+   ```
+
+## Use Cases
+
+- **Blockchain updates**: Receive new block notifications
+- **Transaction broadcasting**: Get transaction updates in real-time
+- **Network announcements**: Stay informed about network changes
+- **Validator coordination**: Coordinate with other network participants
+
+## Performance Considerations
+
+<Callout>
+Multicast mode is optimized for scenarios where the same data needs to reach multiple recipients, reducing bandwidth usage compared to individual unicast connections.
+</Callout>
+
+## Troubleshooting
+
+Common multicast issues and solutions:
+- **Group join failures**: Verify network permissions and group availability
+- **Message loss**: Check multicast buffer sizes and network congestion
+- **Authentication errors**: Ensure public key verification is complete
+
+## Next Steps
+
+After establishing multicast connections:
+- Monitor multicast group activity
+- Configure message filtering preferences
+- Optimize for your specific use case 

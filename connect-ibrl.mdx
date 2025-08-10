@@ -1,0 +1,77 @@
+---
+title: "Connect - IBRL Mode"
+description: "Connect to DoubleZero using Internet Backbone Routing Logic for optimal performance"
+---
+
+# Connect - IBRL Mode
+
+Internet Backbone Routing Logic (IBRL) mode provides optimal performance for high-frequency blockchain operations by leveraging direct routing through the DoubleZero network backbone.
+
+## What is IBRL Mode?
+
+IBRL mode establishes direct connections through the DoubleZero network's optimized routing infrastructure, bypassing traditional internet routing for improved latency and reliability.
+
+## Configuration
+
+### Network Settings
+
+```bash
+# Example IBRL configuration
+network_mode: "ibrl"
+backbone_routing: true
+latency_optimization: true
+```
+
+### Connection Parameters
+
+- **Protocol**: DZ Protocol v1.0
+- **Port**: 8080 (default)
+- **Authentication**: Public key verification
+- **Encryption**: TLS 1.3
+
+## Setup Steps
+
+1. **Configure your client**
+   ```bash
+   # Update your DoubleZero client configuration
+   dz config set mode ibrl
+   dz config set backbone true
+   ```
+
+2. **Verify network connectivity**
+   ```bash
+   # Test connection to DoubleZero backbone
+   dz ping backbone
+   ```
+
+3. **Authenticate with the network**
+   ```bash
+   # Verify your public key
+   dz auth verify
+   ```
+
+4. **Establish connection**
+   ```bash
+   # Connect to the network
+   dz connect
+   ```
+
+## Performance Benefits
+
+- **Reduced latency**: Direct routing through optimized backbone
+- **Improved reliability**: Bypasses congested internet routes
+- **Better throughput**: Optimized for blockchain data patterns
+- **Lower jitter**: Consistent connection quality
+
+## Troubleshooting
+
+<Callout>
+If you experience connection issues, verify your network configuration and ensure your public key is properly registered on the DoubleZero network.
+</Callout>
+
+## Next Steps
+
+Once connected in IBRL mode, you can:
+- Monitor network performance
+- Configure data filtering rules
+- Optimize your blockchain operations 

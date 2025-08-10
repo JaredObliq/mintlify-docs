@@ -1,16 +1,18 @@
-# Mintlify Starter Kit
+# DoubleZero Documentation
 
-Use the starter kit to get your docs deployed and ready to customize.
+This repository contains the official documentation for DoubleZero, a decentralized framework for creating and managing high-performance decentralized networks, optimized for distributed systems like blockchains.
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
+## About DoubleZero
 
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
+DoubleZero provides an integrated service for highly-optimized transmission and pre-processing for distributed systems data. Users of DoubleZero enjoy improved network performance through edge filtering and optimized routing compared to traditional internet connections.
 
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
+## Documentation Structure
+
+- **Getting Started**: Introduction and setup guides
+- **Connection Modes**: IBRL and Multicast connection options
+- **Network**: Contribution and architecture information
+- **Support**: FAQs and important notices
+- **API Reference**: Technical API documentation
 
 ## Development
 
@@ -42,3 +44,4 @@ Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/sett
 ### Resources
 - [Mintlify documentation](https://mintlify.com/docs)
 - [Mintlify community](https://mintlify.com/community)
+- [DoubleZero Protocol](https://docs.malbeclabs.com/)
