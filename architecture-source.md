@@ -1,14 +1,9 @@
----
-title: "Architecture"
-description: "Technical architecture and core components of the DoubleZero network"
----
-
 # Architecture
 
 What makes up the different actors and components of the DoubleZero network?
 
-<figure>
-  <img src="/images/figure8.png" alt="Network architecture components" width="800" />
+<figure markdown="span">
+  ![Image title](images/figure8.png){ width="800" }
   <figcaption>Figure 1: Network architecture components</figcaption>
 </figure>
 
@@ -50,4 +45,4 @@ The Agent software runs directly on DoubleZero Devices and applies configuration
 
 ### Device
 
-The physical device enclosure providing the routing and link termination for the DoubleZero network. DZDs run the DoubleZero Agent software and are configured based on data read from the Controller service. 
+The physical device enclosure providing the routing and link termination for the DoubleZero network. DZDs run the DoubleZero Agent software and are configured based on data read from the Controller service.

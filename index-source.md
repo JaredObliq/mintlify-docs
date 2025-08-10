@@ -1,8 +1,3 @@
----
-title: "Welcome to DoubleZero"
-description: "A decentralized framework for creating and managing high-performance decentralized networks"
----
-
 # Welcome to DoubleZero
 
 DoubleZero is a decentralized framework for creating and managing high-performance decentralized networks, optimized for distributed systems like blockchains. Users of DoubleZero enjoy an integrated service for highly-optimized transmission and pre-processing for distributed systems data.
@@ -31,8 +26,9 @@ Taken together, these DoubleZero network benefits can achieve levels of performa
 
 For more details, see the [DoubleZero Protocol](https://doublezero.xyz/whitepaper.pdf) whitepaper.
 
+
 ## Next Steps
 
-* *For Users* Learn how to perform [initial setup](/setup), connect to DoubleZero in [IBRL mode](/connect-ibrl), and in [multicast mode](/connect-multicast) to start using the network.
-* *For Contributors* See how to [Contribute](/contribute) additional capacity to grow the DoubleZero network further.
-* *More Information* Read more about what makes up the [Architecture](/architecture) of the DoubleZero network.
+* *For Users* Learn how to perform [initial setup](setup.md), connect to DoubleZero in [IBRL mode](connect-ibrl.md), and in [multicast mode](connect-multicast.md) to start using the network.
+* *For Contributors* See how to [Contribute](contribute.md) additional capacity to grow the DoubleZero network further.
+* *More Information* Read more about what makes up the [Architecture](architecture.md) of the DoubleZero network.

@@ -1,33 +1,93 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: "API Reference"
+description: "Complete API documentation for the DoubleZero network"
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+# API Reference
 
-## Welcome
-
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
-
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+The DoubleZero API provides programmatic access to network services, allowing you to integrate blockchain systems, manage connections, and monitor network performance.
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+All API requests require authentication using your DoubleZero public key and signature.
+
+### Public Key Authentication
+
+```bash
+# Generate authentication headers
+curl -H "X-DZ-Public-Key: YOUR_PUBLIC_KEY" \
+     -H "X-DZ-Signature: GENERATED_SIGNATURE" \
+     -H "X-DZ-Timestamp: $(date +%s)" \
+     https://api.doublezero.network/v1/status
+```
+
+### Authentication Flow
+
+1. **Generate Request Hash**: Hash the request body and timestamp
+2. **Sign with Private Key**: Create signature using your private key
+3. **Include Headers**: Add public key, signature, and timestamp to request
+
+## Base URL
+
+```
+https://api.doublezero.network/v1
+```
+
+## Rate Limits
+
+- **Standard**: 1000 requests per hour
+- **Premium**: 10000 requests per hour
+- **Enterprise**: 100000 requests per hour
+
+## Response Format
+
+All API responses follow this structure:
 
 ```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
+{
+  "success": true,
+  "data": {},
+  "error": null,
+  "timestamp": "2025-01-06T10:00:00Z",
+  "request_id": "req_123456789"
+}
 ```
+
+## Error Codes
+
+| Code | Description |
+|------|-------------|
+| 400  | Bad Request - Invalid parameters |
+| 401  | Unauthorized - Authentication failed |
+| 403  | Forbidden - Insufficient permissions |
+| 404  | Not Found - Resource doesn't exist |
+| 429  | Too Many Requests - Rate limit exceeded |
+| 500  | Internal Server Error - Server issue |
+
+## SDKs and Libraries
+
+### Official SDKs
+
+- **JavaScript/Node.js**: `@doublezero/sdk`
+- **Python**: `doublezero-python`
+- **Go**: `github.com/doublezero/go-sdk`
+- **Rust**: `doublezero-rust`
+
+### Community Libraries
+
+- **Java**: `com.doublezero:java-sdk`
+- **C#**: `DoubleZero.DotNet`
+- **PHP**: `doublezero/php-sdk`
+
+## Getting Started
+
+1. **Install SDK**: Choose your preferred language
+2. **Configure Authentication**: Set up your public/private key pair
+3. **Make First Request**: Test with the status endpoint
+4. **Explore Endpoints**: Use the interactive documentation
+
+## Support
+
+- **API Documentation**: [docs.doublezero.network/api](https://docs.doublezero.network/api)
+- **Developer Forum**: [community.doublezero.network](https://community.doublezero.network)
+- **Support Email**: api-support@doublezero.network

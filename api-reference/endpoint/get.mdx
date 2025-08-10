@@ -1,4 +1,167 @@
 ---
-title: 'Get Plants'
-openapi: 'GET /plants'
+title: 'Network Status'
+openapi: 'GET /v1/network/status'
 ---
+
+# Network Status
+
+Get real-time information about the DoubleZero network status, performance metrics, and health indicators.
+
+## Endpoint
+
+```
+GET /v1/network/status
+```
+
+## Description
+
+Returns comprehensive network status information including uptime, performance metrics, active connections, and system health indicators.
+
+## Authentication
+
+Required: Public key authentication with signature
+
+## Parameters
+
+None
+
+## Response
+
+### Success Response (200)
+
+```json
+{
+  "success": true,
+  "data": {
+    "network": {
+      "status": "operational",
+      "uptime": 99.99,
+      "health_score": 95,
+      "last_updated": "2025-01-06T10:00:00Z"
+    },
+    "performance": {
+      "average_latency": 12.5,
+      "throughput_gbps": 45.2,
+      "active_connections": 1250,
+      "packet_loss": 0.001
+    },
+    "infrastructure": {
+      "total_nodes": 89,
+      "active_contributors": 67,
+      "geographic_coverage": 15,
+      "backbone_capacity": "2.5Tbps"
+    },
+    "security": {
+      "encryption_status": "active",
+      "authentication_methods": ["public_key", "tls_1_3"],
+      "threat_level": "low",
+      "last_security_scan": "2025-01-06T09:00:00Z"
+    }
+  },
+  "error": null,
+  "timestamp": "2025-01-06T10:00:00Z",
+  "request_id": "req_123456789"
+}
+```
+
+### Error Responses
+
+#### 401 Unauthorized
+```json
+{
+  "success": false,
+  "data": null,
+  "error": {
+    "code": "AUTH_FAILED",
+    "message": "Authentication failed - invalid signature",
+    "details": "Signature verification failed"
+  },
+  "timestamp": "2025-01-06T10:00:00Z",
+  "request_id": "req_123456789"
+}
+```
+
+#### 429 Too Many Requests
+```json
+{
+  "success": false,
+  "data": null,
+  "error": {
+    "code": "RATE_LIMIT_EXCEEDED",
+    "message": "Rate limit exceeded",
+    "details": "Limit: 1000 requests per hour, Reset: 2025-01-06T11:00:00Z"
+  },
+  "timestamp": "2025-01-06T10:00:00Z",
+  "request_id": "req_123456789"
+}
+```
+
+## Response Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `network.status` | string | Current network status (operational, degraded, maintenance) |
+| `network.uptime` | number | Network uptime percentage |
+| `network.health_score` | number | Overall health score (0-100) |
+| `performance.average_latency` | number | Average latency in milliseconds |
+| `performance.throughput_gbps` | number | Current throughput in Gbps |
+| `performance.active_connections` | number | Number of active network connections |
+| `infrastructure.total_nodes` | number | Total number of network nodes |
+| `infrastructure.active_contributors` | number | Number of active contributor nodes |
+
+## Example Usage
+
+### cURL
+```bash
+curl -X GET "https://api.doublezero.network/v1/network/status" \
+  -H "X-DZ-Public-Key: YOUR_PUBLIC_KEY" \
+  -H "X-DZ-Signature: GENERATED_SIGNATURE" \
+  -H "X-DZ-Timestamp: $(date +%s)"
+```
+
+### JavaScript
+```javascript
+const response = await fetch('https://api.doublezero.network/v1/network/status', {
+  method: 'GET',
+  headers: {
+    'X-DZ-Public-Key': publicKey,
+    'X-DZ-Signature': signature,
+    'X-DZ-Timestamp': timestamp
+  }
+});
+
+const data = await response.json();
+console.log('Network Status:', data.data.network.status);
+```
+
+### Python
+```python
+import requests
+
+headers = {
+    'X-DZ-Public-Key': public_key,
+    'X-DZ-Signature': signature,
+    'X-DZ-Timestamp': timestamp
+}
+
+response = requests.get('https://api.doublezero.network/v1/network/status', headers=headers)
+data = response.json()
+print(f"Network Uptime: {data['data']['network']['uptime']}%")
+```
+
+## Rate Limiting
+
+This endpoint is subject to standard rate limiting:
+- **Standard**: 1000 requests per hour
+- **Premium**: 10000 requests per hour
+- **Enterprise**: 100000 requests per hour
+
+## Caching
+
+Network status data is cached for 30 seconds. For real-time monitoring, consider using WebSocket connections or the streaming API endpoints.
+
+## Related Endpoints
+
+- `GET /v1/network/performance` - Detailed performance metrics
+- `GET /v1/network/health` - Detailed health checks
+- `GET /v1/network/incidents` - Active incidents and alerts
