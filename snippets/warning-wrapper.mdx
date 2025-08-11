@@ -1,0 +1,9 @@
+// Warning wrapper snippet that applies the warning theme to content
+export const WarningWrapper = ({ children, defaultOpen = true }) => (
+  <Warning defaultOpen={defaultOpen}>
+    {children}
+  </Warning>
+);
+
+// Default export for direct usage
+export default WarningWrapper;
